@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+	<application>
+		<!-- configuracoes do locale (i18n) -->
+		<locale-config>
+			<default-locale>pt_BR</default-locale>
+			<supported-locale>en_US</supported-locale>
+			<supported-locale>es_ES</supported-locale>
+		</locale-config>
+
+		<resource-bundle>
+			<base-name>messages_labels</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		
+		
+		<!-- CONFIGURACAO DA API DO PRIMEFACES PARA PERMITIR ABERTURA DE DIALOG -->
+	<action-listener>org.primefaces.application.DialogActionListener</action-listener>
+        <navigation-handler>org.primefaces.application.DialogNavigationHandler</navigation-handler>
+        <view-handler>org.primefaces.application.DialogViewHandler</view-handler>
+        
+	</application>
+
+
+	<!-- Registrar o PhaseListener de Autenticacao para o Spring Security -->
+	<lifecycle>
+		<phase-listener>br.com.controller.AutenticacaoPhaseListener</phase-listener>
+	</lifecycle>
+
+</faces-config>

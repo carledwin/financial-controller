@@ -1,0 +1,57 @@
+--executor - https://github.com/algaworks/curso-javaee-primefaces/blob/master/ChamandoRelatorioPaginaJSF/src/main/java/com/algaworks/pedidovenda/util/report/ExecutorRelatorio.java
+--web relatorio - https://github.com/algaworks/curso-javaee-primefaces/blob/master/ChamandoRelatorioPaginaJSF/src/main/webapp/relatorios/RelatorioPedidosEmitidos.xhtml
+--relatorio - https://github.com/algaworks/curso-javaee-primefaces/tree/master/ChamandoRelatorioPaginaJSF
+--validao de dados http://www.algaworks.com/aulas/296/introducao-ao-bean-validation-e-hibernate-validator/
+--http://sourceforge.net/projects/ireport/files/iReport/iReport-5.6.0/iReport-5.6.0.zip/download -- https://github.com/algaworks/curso-javaee-primefaces/blob/master/ChamandoRelatorioPaginaJSF/pom.xml
+--Usamos para templates de emails
+
+corrigir falha ao tentar efetuar pesquisa de perfil por descrio
+criar mascara para telefone e celular
+criar mascara de cpf em crud cliente
+
+
+incluir lista de uf e cidade, e sexo para o crude de usuario
+
+criar task quartz
+criar envio de email
+criar lista para uf e cidade dinamica para cliente
+
+criar lista de perfis para o crud de usuario
+criar o crud de usuario
+criar o crud de perfil
+verificar porque está sendo criada coluna do tipo blob nos relacionamentos
+implentar relatorio
+criar conta no Amazon
+criar banner
+incluir colaborador
+criar crud de funçao
+permitir criação de usuario somente para quem for colaborador
+associar o usuario ao colaborador na tela de cadastro de usuario
+incluir perfil do usuario 
+criação de autocomple para pesquisa de cliente na comanda
+criar crud de Cliente
+criar crud de Colaborador
+criar crud de comanda
+remover excesso de icons do menu
+remover classes e paginas não utilizadas
+ajustar crud de banco novo padrão do sistema
+Gerar testes jUnit para testar os cruds
+incluir tipo de serviço na tela de serviço e grid
+Implementar validação com BeanValidation para validar tentativa de inclusão de banco sem nome-pendente
+controle de visibilidade dos paineis e dataTable - pendente
+Implementar crud de usuario
+implementar validação de senha por md
+
+
+-----------------------------------CONCLUIDOS ----------------------------------
+
+ver http://www.algaworks.com/aulas/221/ajax-e-renderizacao-parcial/ 26:46
+
+Pesquisar banco por like - concluido
+Alterar banco - concluido
+Remover banco - concluido
+Cadastrar banco - concluido
+Remover empresa na verificação de login - concluido
+Criar teste de navegação gravando os passos de crud com ferramenta para tal. - concluido
+Crud de Serviço - concluido
+Ajustar mask de preço %C e %E, Data, -concluido

@@ -1,0 +1,130 @@
+@CHARSET "ISO-8859-1";
+
+.ui-icon-pdf{
+	background-image: url("resources/img/pdf.png") !important;
+}
+
+body{
+	background-color:#eeeeee;
+	background-image: url(resources/img/logogf.png);
+    background-repeat: no-repeat;
+    
+
+}
+
+.center{text-align:center;}
+.content-center{margin:0px auto;}
+.right{text-align:right;}
+.left{text-align:left;}
+.justify{text-align:justify;}
+
+.header1{
+	padding-left: 20px;
+  padding-top: 10px;
+	text-align: center;
+	font-size: 12px;
+	height: 60px;
+	width: 100%;
+ background: -moz-linear-gradient(-90deg, #003471, #4169E1);
+ background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eeeeee));
+}
+
+.header1_font{
+  font-family: Rockwell, Georgia, "Times New Roman", Times, serif;
+  color: #FFFFFF;
+  text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+}
+
+.header_usuario{
+	color:white;
+	text-align: right;	
+	font-size:10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+}
+
+.header2_font{
+	font:normal 30pt Arial;
+ color:#FFFFFF;
+ text-shadow: 0 1px 0 #ccc,
+ 0 2px 0 #c9c9c9,
+ 0 3px 0 #bbb,
+ 0 4px 0 #b9b9b9,
+ 0 5px 0 #aaa,
+ 0 6px 1px rgba(0,0,0,.1),
+ 0 0 5px rgba(0,0,0,.1),
+ 0 1px 3px rgba(0,0,0,.3),
+ 0 3px 5px rgba(0,0,0,.2),
+ 0 5px 10px rgba(0,0,0,.25),
+ 0 10px 10px rgba(0,0,0,.2),
+ 0 20px 20px rgba(0,0,0,.15);
+}
+
+.header3_font{
+	 content : 'Hello World';
+        color: #d6d6d6;
+        text-shadow: 0 1px 0 white;
+}
+
+tr, td {  
+    border: none !important;  
+}  
+
+.center{
+	margin-left: auto;
+    margin-right: auto
+}
+
+
+body {
+	font: 12px Arial, Helvetica, sans-serif;
+	/* background-image: url("../images/background.jpg"); */
+}
+
+
+
+.alpha {
+     filter:alpha(opacity=70);
+     opacity: 0.7;
+     -moz-opacity:0.7;
+     -webkit-opacity:0.7;
+}
+
+#menu{
+	width: 100%;
+}
+
+#content {
+	height:auto;
+	width: 100%;
+	background-color: #EEE;
+}
+
+#content * {
+	
+}
+
+#footer {
+	padding-top:20px;
+	clear: both;
+	height: auto;
+	width: 100%;
+	color: buttonshadow;
+	background-color: #DDD;
+}
+
+#lbl-footer{
+	font-size:10px;
+	font-family: arial;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+
+.decoration-none{
+	text-decoration: none;
+	color: buttonshadow;
+}
+
+.campoAutoComplete{
+width:99%;
+}

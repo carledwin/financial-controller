@@ -1,0 +1,4 @@
+remover botao limpar
+desabilitar botoes de consulta e pesquisa
+permitir exclusao de item de comanda
+validar tamanho de campos

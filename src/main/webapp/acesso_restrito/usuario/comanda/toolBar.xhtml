@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<p:toolbar id="tlBarAcao" style="width:887px; margin-bottom:5px;">
+					<p:toolbarGroup>
+						<p:commandButton value="Novo" outcome="index"
+							actionListener="#{comandaBean.prepararNovo}" update="@form"
+							disabled="#{comandaBean.objetoPrincipal.id != null}" />
+						<p:commandButton value="Limpar"
+							actionListener="#{comandaBean.limpar}" update="@form"
+							disabled="#{!comandaBean.cadastro and !comandaBean.pesquisa and !comandaBean.alteracao}" />
+						<p:commandButton id="btCancelar" outcome="index" value="Cancelar"
+							action="#{comandaBean.cancelar}" update="@form"
+							disabled="#{!comandaBean.cadastro and !comandaBean.pesquisa and !comandaBean.consulta and !comandaBean.alteracao}">
+							<p:confirm icon="ui-icon-alert"
+								header="Confirmação de cancelamento"
+								message="Deseja confirmar o cancelamento da operação?" />
+						</p:commandButton>
+						<p:commandButton id="btSalvar"
+							value="#{comandaBean.objetoPrincipal.id == null ? 'Salvar' : 'Alterar'}"
+							action="#{comandaBean.cadastrar}" update="@form"
+							disabled="#{!comandaBean.cadastro and !comandaBean.alteracao}" process="@this" >
+							<p:confirm icon="ui-icon-alert" header="Confirmação de inclusão"
+								message="Deseja confirmar inclusão da comanda?"   />
+						</p:commandButton>
+					</p:toolbarGroup>
+					<p:toolbarGroup align="right">
+						<p:commandButton value="Pesquisar" outcome="index" update="@form" action="#{comandaBean.prepararPesquisa}" />
+						<p:commandButton value="Consultar***" outcome="index" update="@form" action="#{comandaBean.prepararConsulta}" />
+					</p:toolbarGroup>
+				</p:toolbar>
+</ui:composition>

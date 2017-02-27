@@ -1,0 +1,12 @@
+INSERT INTO `financialcontroller`.`Perfil` (`id`, `descricao`, `regra`) VALUES ('1', 'Adminstrador', 'ROLE_ADMIN');
+INSERT INTO `financialcontroller`.`Usuario` (`id`, `login`, `senha`, `perfil_id`) VALUES ('1', 'vivian', 'jaca', '1');
+INSERT INTO `financialcontroller`.`TipoServico` (`id`, `descricao`) VALUES ('1', 'MANICURE');
+INSERT INTO `financialcontroller`.`Servico` (`id`, `commissaoC`, `descricao`, `status`, `valor`, `tipoServico_id`) VALUES ('1', '70', 'Mao simples', 'ATIVO', '20.00', '1');
+INSERT INTO `financialcontroller`.`Servico` (`id`, `commissaoC`, `descricao`, `status`, `valor`, `tipoServico_id`) VALUES ('3', '70', 'Mao Francesa', 'ATIVO', '25.00', '1');
+INSERT INTO `financialcontroller`.`Servico` (`id`, `commissaoC`, `descricao`, `status`, `valor`, `tipoServico_id`) VALUES ('2', '70', 'Pe simples', 'ATIVO', '30.00', '1');
+INSERT INTO `financialcontroller`.`Pessoa` (`IDENT`, `celular`, `dataCadastro`, `dataNascimento`, `email`, `nome`, `telefone`, `tipoPessoa`) VALUES ('1', '11922222222', '2017-01-18 16:50:48', '2017-01-18 16:50:51', 'cliente1@email.com', 'Cliente 1', '1122222222', 'C');
+INSERT INTO `financialcontroller`.`Pessoa` (`IDENT`, `dataCadastro`, `dataNascimento`, `nome`, `tipoPessoa`) VALUES ('2', '2017-01-18 16:50:48', '2017-01-18 16:50:51', 'Vivian', 'P');
+INSERT INTO `financialcontroller`.`Cliente` (`ID_CLIENTE`) VALUES ('1');
+INSERT INTO `financialcontroller`.`Endereco` (`id`, `bairro`, `cep`, `cidade`, `complemento`, `logradouro`, `numero`, `pais`, `uf`, `pessoa_IDENT`) VALUES ('1', 'Bairro 1', '08888222', 'Guarulhos', 'complemento', 'Rua das estrelas', '123', 'Brasil', 'SP', '1');
+INSERT INTO `financialcontroller`.`Cargo` (`id`, `descricao`) VALUES ('1', 'MANICURE');
+INSERT INTO `financialcontroller`.`Profissional` (`ID_COLABORADOR`, `cargo_id`) VALUES ('2', '1');

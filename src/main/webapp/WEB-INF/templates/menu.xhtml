@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"  xmlns:p="http://primefaces.org/ui">
+	 
+<f:loadBundle basename="messages_labels" var="msg"/>
+
+<h:form prependId="false">
+	<p:menubar styleClass="content-center">
+		<p:submenu label="#{msg['menu.cadastro']}"	id="sbCadastro" icon="ui-icon-document" >
+				<p:menuitem id="mnCadComanda" value="#{msg['menu.comandas']}" url="/acesso_restrito/usuario/comanda/index.jsf" />
+				<p:separator />
+				<p:menuitem id="mnCadClientes" value="#{msg['menu.clientes']}" url="/acesso_restrito/usuario/cliente/index.jsf" />
+		</p:submenu>
+		
+		<p:submenu label="#{msg['menu.painel.sistema']}" id="sbControleSistema" icon="ui-icon-gear">
+			<p:menuitem id="mnCadCargo" value="#{msg['menu.cargos']}" url="/acesso_restrito/admin/cargo/index.jsf" />
+			<p:separator />
+			<p:menuitem id="mnCadColaborador" value="#{msg['menu.profissionais']}" url="/acesso_restrito/admin/colaborador/index.jsf" />
+			<p:separator />
+			<p:menuitem id="mnCadComissao" value="#{msg['menu.comissao']}" url="/acesso_restrito/admin/comissao/index.jsf" />
+			<p:separator />
+			<p:menuitem id="mnCadPerfil" value="#{msg['menu.perfis']}" url="/acesso_restrito/admin/perfil/index.jsf" />
+			<p:separator />
+			<p:menuitem id="mnCadServico" value="#{msg['menu.servicos']}"	url="/acesso_restrito/admin/servico/index.jsf"/>
+			<p:separator />
+			<p:menuitem id="mnCadTipoServico" value="#{msg['menu.tipos.servico']}"	url="/acesso_restrito/admin/tipoServico/index.jsf"/>
+			<p:separator />
+			<p:menuitem id="mnCadUsuario" value="#{msg['menu.usuarios']}" url="/acesso_restrito/admin/usuario/index.jsf" />
+			<p:separator />
+			<p:menuitem id="mnCadvale" value="#{msg['menu.vales']}" url="/acesso_restrito/usuario/vale/index.jsf" />	
+			<p:separator />
+		</p:submenu>
+	
+		<p:menuitem value="#{msg['menu.ajuda']}" id="mnItHelp" icon="ui-icon-help" url="/index.jsf" />
+		<p:menuitem value="#{msg['menu.sair']}" id="mnItSair" 	url="/logout.jsf" icon=" ui-icon-arrowreturnthick-1-e" />
+	</p:menubar>
+</h:form>
+</html>

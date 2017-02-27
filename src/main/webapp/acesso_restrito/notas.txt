@@ -1,0 +1,12 @@
+	<!-- banCodigo nome do servidor
+		 frm:banCodigo nome no cliente 
+		 @form - todo o formulario
+		 prependId - 
+		 Nao sao naming container : panelGrid 
+		 :expreção de pesquisa
+		 :frm - comece a pesquisa pelo componente a partir da raiz
+		 -->
+
+
+				<!-- 	chamar uma pagina button
+				executar um comando commandButton -->

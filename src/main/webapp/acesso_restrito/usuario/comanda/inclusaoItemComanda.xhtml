@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"	xmlns:p="http://primefaces.org/ui"	xmlns:pe="http://primefaces.org/ui/extensions">
+	<ui:define name="title">Cadastro de ItemComanda</ui:define>
+	<p:spacer height="30" />
+	<ui:define name="messages">
+		<h:messages id="msgGlobal" />
+	</ui:define>
+	<ui:define name="content">
+
+		<p:dialog  modal="true" rendered="true" style="width: 630px; height: 210px;"	header="Inclusão de Item da Comanda" widgetVar="dlg2" showEffect="explode" hideEffect="bounce" height="100" resizable="false">
+			<p:panelGrid id="plGrid_Cad" style="width:600px" layout="grid" >
+				<p:row>
+					<p:column width="40px"><p:outputLabel value="Codigo: " /></p:column>
+					<p:column >
+						<p:inputText  disabled="true"	value="#{comandaBean.novoItemComanda.id}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column><p:outputLabel value="Serviço: " /></p:column>
+						<p:column>
+							<p:selectOneMenu value="#{comandaBean.servicoSelecionado}"	converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemLabel="Selecione" />
+									<f:selectItems value="#{comandaBean.todosServicos}" var="tipoServico" itemLabel="#{servico.descricao}"
+									itemValue="#{servico}" />
+							</p:selectOneMenu>
+						</p:column>
+
+					<p:column><p:outputLabel value="Valor: " /></p:column>
+					<p:column>
+							<pe:inputNumber id="serPreco" size="7" maxlength="7" value="#{comandaBean.servicoSelecionado.valor}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column><p:outputLabel value="Colaborador1: " /></p:column>
+		
+					<p:column>
+							<p:selectOneMenu value="#{comandaBean.colaboradorSelecionado1}"	converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemLabel="Selecione" />
+								<f:selectItems value="#{comandaBean.todosColaboradores}" var="colaborador" itemLabel="#{colaborador.nome}"
+									itemValue="#{colaborador}" />
+							</p:selectOneMenu>
+						</p:column>
+					<p:column><p:outputLabel value="Cargo: " /></p:column>
+					<p:column >
+						<p:outputLabel value="#{comandaBean.colaboradorSelecionado1.cargo.descricao}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column><p:outputLabel value="Colaborador2: " /></p:column>
+					<p:column>
+							<p:selectOneMenu value="#{comandaBean.colaboradorSelecionado2}"	converter="omnifaces.SelectItemsConverter">								<f:selectItem itemLabel="Selecione" />
+								<f:selectItems value="#{comandaBean.todosColaboradores}" var="colaborador" itemLabel="#{colaborador.nome}"
+									itemValue="#{colaborador}" />
+							</p:selectOneMenu>
+						</p:column>
+						<p:column><p:outputLabel value="Cargo: " /></p:column>
+					<p:column width="60px">
+						<p:autoComplete	value="#{comandaBean.colaboradorSelecionado2.cargo.descricao}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column >
+						<p:commandButton value="Incluir" actionListener="#{comandaBean.adicionarServicoRealizado}" onclick="PF('dlg1').hide();" update="dtItems" />
+					</p:column>
+					
+				</p:row>
+			</p:panelGrid>
+		</p:dialog>
+	</ui:define>
+</ui:composition>

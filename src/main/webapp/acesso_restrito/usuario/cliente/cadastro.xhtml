@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"	xmlns:h="http://xmlns.jcp.org/jsf/html"	xmlns:f="http://xmlns.jcp.org/jsf/core"	xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+	
+		<f:facet name="header">
+					Dados do Cliente 
+		</f:facet>
+				
+		<p:outputLabel value="Codigo: " />
+		<p:inputText disabled="true" value="#{clienteBean.objetoPrincipal.id}" maxlength="6" size="10"/>
+		
+		<p:outputLabel value="Nome: " />
+		<p:inputText value="#{clienteBean.objetoPrincipal.nome}" maxlength="90" />
+		
+		<p:outputLabel value="Telefone: " />
+		<p:inputMask mask="99 9999-9999" value="#{clienteBean.objetoPrincipal.telefone}" />
+		
+		<p:outputLabel value="Celular: " />
+		<p:inputMask mask="99 9 9999-9999" value="#{clienteBean.objetoPrincipal.celular}" />
+		
+		<p:outputLabel value="E-mail: " />
+		<p:inputText value="#{clienteBean.objetoPrincipal.email}" maxlength="80" />
+	
+	<br />
+	<br />	
+		<p:tabView id="tabAllCli" rendered="#{clienteBean.cadastro or clienteBean.alteracao}">
+			<p:tab title="Endereço">
+				<ui:include src="endereco.xhtml" />
+			</p:tab>
+		</p:tabView>
+</ui:composition>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"  xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="header">
+	    <ui:include src="/WEB-INF/templates/header.xhtml"/>
+	</ui:define>
+	<ui:define name="title">SGF - Sistema de Gestão Financeira SG</ui:define>
+	<ui:define name="menu">
+	   <ui:include src="/WEB-INF/templates/menu.xhtml"/>
+	</ui:define>
+	<ui:define name="content" >
+	   
+	    <h:panelGroup rendered="#{usuarioBean.usuarioLogado.perfil.regra =='ROLE_ADMIN'}">
+	   	<ui:include src="/acesso_restrito/admin/index.xhtml"/>
+	   </h:panelGroup>
+	   <h:panelGroup rendered="#{usuarioBean.usuarioLogado.perfil.regra =='ROLE_USER'}">
+	   	<ui:include src="/acesso_restrito/usuario/index.xhtml"/>
+	   </h:panelGroup>
+	   <h:panelGroup rendered="#{usuarioBean.usuarioLogado.perfil.regra =='ROLE_VISITANTE'}">
+	   	<ui:include src="/acesso_restrito/visitante/index.xhtml"/>
+	   </h:panelGroup>
+	   
+	</ui:define>
+	<ui:define name="footer">
+	    <ui:include src="/WEB-INF/templates/footer.xhtml" />
+	</ui:define>
+</ui:composition>
+</html>

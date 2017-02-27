@@ -1,0 +1,22 @@
+<!-- 
+C:\Users\CarlEdwin\Documents\SERVERS\wildfly-8.2.0.Final\standalone\configuration\standalone.xml
+
+<datasource jndi-name="java:jboss/datasources/MySQLDS" pool-name="MySQLDS" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:mysql://localhost:3306/sgmaniadb</connection-url>
+                    <driver>com.mysql.jdbc</driver>
+                    <security>
+                        <user-name>root</user-name>adminfDqcvTJ
+                        <password>sa</password>c_diJTtP5sqK
+                    </security>
+                </datasource>
+                <drivers>
+                   <driver name="com.mysql.jdbc" module="com.mysql.jdbc">
+                        <xa-datasource-class>com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</xa-datasource-class>
+                    </driver>
+                </drivers>
+                
+**********************************************************************************************************
+
+C:\Users\CarlEdwin\Documents\SERVERS\wildfly-8.2.0.Final\modules\system\layers\base\com\mysql
+ 
+ -->

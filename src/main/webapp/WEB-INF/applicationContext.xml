@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+				xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:security="http://www.springframework.org/schema/security"
+			    xmlns:p="http://www.springframework.org/schema/p"
+			    xmlns:context="http://www.springframework.org/schema/context"
+				xmlns:beans="http://www.springframework.org/schema/beans"
+				xmlns:tx="http://www.springframework.org/schema/tx"
+				xsi:schemaLocation="http://www.springframework.org/schema/beans		http://www.springframework.org/schema/beans/spring-beans.xsd
+									http://www.springframework.org/schema/context	http://www.springframework.org/schema/context/spring-context.xsd
+									http://www.springframework.org/schema/security	http://www.springframework.org/schema/security/spring-security-3.2.xsd
+									http://www.springframework.org/schema/tx    	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- Habilita o suporte as anotações padrão da JSR 250 -->
+	<context:annotation-config />
+
+	<!-- Arquivo de mensagens da aplicacao -->
+	<beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<beans:property name="basename" value="classpath:resources/application" />
+		<beans:property name="defaultEncoding" value="ISO-8859-1" />
+	</beans:bean>
+
+	<!-- Configuracao para injecao de EntityManagers dentro dos componentes do Spring -->
+	<beans:bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<!-- EntityManagerFactory gerenciado pelo Spring -->
+	<beans:bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<beans:property name="persistenceUnitName" value="BeautySalonManagement-MySql-PU" />
+		<beans:property name="jpaPropertyMap">
+			<beans:props>
+				<beans:prop key="eclipselink.weaving">false</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+
+	<!-- Gerenciador de transacoes do Spring -->
+	<beans:bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<beans:property name="entityManagerFactory" ref="entityManagerFactory" />
+	</beans:bean>
+
+	<!-- Habilita o controle de transações EJB pelo Spring -->
+	<!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->
+
+	<!-- definindo autenticação utilizando autenticador de entrada -->
+	<security:http auto-config="false" use-expressions="true" access-denied-page="/falha.jsf" entry-point-ref="authenticationEntryPoint">
+		<!-- <security:intercept-url pattern="/index.jsf" access="hasRole('ROLE_ADMIN')" /> -->
+		<security:intercept-url pattern="/acesso_restrito/admin/**" access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/acesso_restrito/usuario/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
+		<security:intercept-url pattern="/acesso_restrito/visitante/**" access="hasAnyRole('ROLE_VISITANTE', 'ROLE_USER, ROLE_ADMIN')" />
+		<security:intercept-url pattern="/acesso_restrito/**" access="isAuthenticated()" />
+		<security:logout invalidate-session="true" logout-success-url="/login.jsf" logout-url="/logout.jsf" />
+		<security:custom-filter ref="authenticationFilter" position="FORM_LOGIN_FILTER" />
+	</security:http>
+	
+	<beans:bean id="authenticationFilter" class="br.com.dao.AutenticacaoFilter" p:authenticationManager-ref="authenticationManager" />
+    <beans:bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint" p:loginFormUrl="/login.jsf"/>
+ 
+    <security:authentication-manager alias="authenticationManager" />
+	
+</beans:beans>

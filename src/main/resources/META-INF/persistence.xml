@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence 	version="2.1"  xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<persistence-unit name="BeautySalonManagement-MySql-PU" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
+		
+		<class>br.com.model.Cliente</class>
+		<class>br.com.model.Perfil</class>
+		<class>br.com.model.Servico</class>
+		<class>br.com.model.Usuario</class>
+		<class>br.com.model.TipoServico</class>
+		<class>br.com.model.Cidade</class>
+		<class>br.com.model.Uf</class>
+		<class>br.com.model.Endereco</class>
+		<class>br.com.model.ItemComanda</class>
+		<class>br.com.model.Profissional</class>
+		<class>br.com.model.Cargo</class>
+		<class>br.com.model.Comanda</class>
+		<class>br.com.model.Pessoa</class>
+		<class>br.com.model.Vale</class>
+		<class>br.com.model.Comissao</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		
+		 
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+
+			<property name="javax.persistence.schema-generation.database.action" value="none"/>
+			<property name="javax.persistence.schema-generation.create-source" value="metadata"/>
+			
+			
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false"/>
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop" />  -->
+
+			<property name="hibernate.connection.charSet" value="UTF-8" />
+			<property name="hibernate.transaction.jta.platform"	value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
+			<property name="javax.persistence.sql-load-script-source" value="META-INF/sql/dados-iniciais.sql"/> 
+
+			<!--
+					Setting	Description
+					none			No schema creation or deletion will take place.
+					create			The provider will create the database artifacts on application deployment. The artifacts will remain unchanged after application redeployment.
+					drop-and-create	Any artifacts in the database will be deleted, and the provider will create the database artifacts on deployment.
+					drop			Any artifacts in the database will be deleted on application deployment. 
+			-->
+			
+		</properties>
+	</persistence-unit>
+
+	
+</persistence>

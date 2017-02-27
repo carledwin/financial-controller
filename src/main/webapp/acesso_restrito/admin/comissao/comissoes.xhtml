@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+	
+	<p:dataTable id="checkboxDT" var="itemComanda" value="#{comissaoBean.items}" selection="#{comissaoBean.itemsSelecionados}" rowKey="#{itemComanda.id}" rendered="#{comissaoBean.consultaComissoes}" style="margin-bottom:0">
+	 
+	  <p:ajax event="rowSelectCheckbox" update=":frmPrincipal:checkboxDT" listener="#{comissaoBean.onRowSelect}" process="@this" />
+      <p:ajax event="rowUnselectCheckbox" update=":frmPrincipal:checkboxDT" listener="#{comissaoBean.onRowUnselect}"  process="@this"  />
+      
+        <f:facet name="header">
+            Consulta items comissão - OBS - calcular comissões por 70% em desenvovimento
+        </f:facet>
+        <p:column selectionMode="multiple" style="width:16px;text-align:center"/>
+        <p:column headerText="Item">
+            <h:outputText value="#{itemComanda.id}" />
+        </p:column>
+        <p:column headerText="Comanda">
+            <h:outputText value="#{itemComanda.comanda.id}" />
+        </p:column>
+        <p:column headerText="Data Comanda">
+            <h:outputText value="#{itemComanda.comanda.dataCriacao.time}">
+            	<f:convertDateTime pattern="dd/MM/yyyy"/>
+            </h:outputText>
+        </p:column>
+        <p:column headerText="Comanda">
+            <h:outputText value="#{itemComanda.statuItem.descricao}" />
+        </p:column>
+        <f:facet name="footer">
+            <p:commandButton process="checkboxDT" update=":frmPrincipal:comissaoDetail" icon="ui-icon-search" value="View" oncomplete="PF('comissaoDetailDialog').show()" />
+             <p:spacer width="50" />
+             <p:outputLabel value="Total: " />
+            <p:outputLabel value="#{comissaoBean.objetoPrincipal.valor}" />
+            
+            <p:commandButton update=":frmPrincipal" value="Pagar" icon="ui-icon-script" actionListener="#{comissaoBean.cadastrar}"  />
+             <p:spacer width="50" />
+        </f:facet>
+    </p:dataTable>
+    
+    
+    <p:dialog header="Items selecionados" widgetVar="comissaoDetailDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="true" responsive="true" >
+        <p:outputPanel id="comissaoDetail">
+            <ui:repeat value="#{comissaoBean.itemsSelecionados}" var="item">
+            <p:panel style="display:block">
+            <h:outputText value=" #{item.id}" />
+            <p:spacer width="50" />
+            <h:outputText value=" #{item.comanda.id}" />
+            <p:spacer width="50" />
+            <h:outputText value= "#{item.comanda.dataCriacao.time}" >
+            	<f:convertDateTime pattern="dd/MM/yyyy"/>
+            </h:outputText>
+            <p:spacer width="50" />
+            <h:outputText value="#{item.profissional.nome}" />
+            <p:spacer width="50" />
+            <h:outputText value="#{item.servico.descricao}" />
+            <p:spacer width="50" />
+            <h:outputText value="#{item.servico.valor}" />
+            </p:panel>
+            </ui:repeat>
+        </p:outputPanel>
+    </p:dialog>
+	
+</ui:composition>

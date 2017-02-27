@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+	
+	<p:dataTable id="dtTable" value="#{comissaoBean.todos}" var="registro" paginator="true" paginatorPosition="bottom" rows="10" layout="grid" rendered="#{comissaoBean.consulta}">
+			<f:facet name="header">
+				<p:outputLabel value="Comissões" />
+			</f:facet>
+			<p:column width="40">
+				<f:facet name="header">
+					<p:outputLabel value="Código" />
+				</f:facet>
+				<h:outputText value="#{registro.id}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<p:outputLabel value="Profissional" />
+				</f:facet>
+				<h:outputText value="#{registro.profissional.nome}" />
+			</p:column>
+
+			<p:column>
+				<f:facet name="header">
+					<p:outputLabel value="Status" />
+				</f:facet>
+				<h:outputText value="#{registro.status}" />
+			</p:column>
+			
+						<p:column>
+				<f:facet name="header">
+					<p:outputLabel value="Valor" />
+				</f:facet>
+				<h:outputText value="#{registro.valor}" />
+			</p:column>
+			
+			<p:column>
+				<f:facet name="header">
+					<p:outputLabel value="Total de Items calculados" />
+				</f:facet>
+				<h:outputText value="#{registro.itemsComanda.size()}" />
+			</p:column>
+
+			<p:column width="80">
+				<f:facet name="header">
+					<p:outputLabel value="Ações" />
+				</f:facet>
+				<p:commandButton title="Pagar" icon="ui-icon-script" process="@this" update="@form" action="#{comissaoBean.pagar}">
+					<f:setPropertyActionListener value="#{registro}" target="#{comissaoBean.objetoSelecionado}" />
+					<p:confirm icon="ui-icon-alert" header="Confirmação de pagamento" message="Confirma o pagamento da comissão?" />
+				</p:commandButton>
+				
+			</p:column>
+		</p:dataTable>
+	
+</ui:composition>

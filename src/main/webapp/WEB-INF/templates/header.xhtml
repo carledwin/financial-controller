@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Financial Controller</title>
+<link rel="shortcut icon" type="image/x-icon" href="../images/logo.ico"/>
+<h:outputStylesheet library="css" name="estilo.css" />
+</h:head>
+<ui:composition name="header">
+<div class="header1" >
+	<div>
+		<p:graphicImage library="img" name="logogf.png" width="50" height="50"/>
+	</div>
+	<div>
+		<p:outputLabel styleClass="header3_font" value="Financial Controller" />
+	</div>
+	<div class="header_usuario">
+		<p:outputLabel value="#{usuarioBean.usuarioLogado.perfil.descricao}"  />
+	</div>
+</div>
+</ui:composition>
+</html>

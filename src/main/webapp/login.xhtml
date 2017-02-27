@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://xmlns.jcp.org/jsf/html"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+<title>FC - Financial Controller</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="../images/logo.ico"/>
+
+<style type="text/css">
+body {
+	margin: 10px 15px;
+	font: 12px Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+#header {
+	height: 80px;
+	background-color: #CCC;
+}
+
+#content {
+	height: 700px;
+}
+
+#content * {
+	padding: 0 20px;
+}
+
+#footer {
+	clear: both;
+	height: 40px;
+	background-color: #CCB;
+}
+
+#div-login{
+	width: 300px;
+	margin: auto;
+	margin-top: 150px;
+	background-color: #EEF;
+	border-radius: 8px;
+}
+
+.pgrid-login{
+	background-color: #f2f2f2;
+	border-radius: 8px;
+	border:1px solid #ccc; 
+	margin-top:8px;
+	padding:10px;
+	width:100%;
+}
+
+.logar{
+	background-color: #0088cc;
+	color: #ffffff;
+	padding-top: 8px;
+    padding-bottom: 8px;
+	border-radius: 5px;
+	height: 40px;
+	width: 90px;
+	font-size: larger;
+	font-family: arial;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	border: none;
+}
+
+.website{
+	background-color: #FF3366;
+	color: #ffffff;
+	padding-top: 8px;
+    padding-bottom: 8px;
+	border-radius: 5px;
+	height: 40px;
+	width: 90px;
+	font-size: larger;
+	font-family: arial;
+	font-weight: bolder;
+	letter-spacing: 2px;
+	border: none;
+}
+
+.semBorda tr, .semBorda td {
+	border: none !important;
+}
+
+</style>
+</h:head>
+<h:body styleClass="content" >
+	<form id="formPrincipalLogin" method="post" action="j_spring_security_check">
+		<p:dialog visible="true" modal="true" resizable="false" closable="false">
+			<p:messages autoUpdate="true" />
+		<f:facet name="header">
+			<p:panelGrid styleClass="semBorda" layout="grid" columns="2" >
+				<p:graphicImage library="img" name="logogf.png" width="70" height="70" />
+				<p:outputLabel style="font-size:17px" value="Financial Controller" />
+			</p:panelGrid> 
+		</f:facet> 
+			<h:panelGrid id="p_grid_login" layout="grid" columns="2" style="width: 100%;" >
+				<h:panelGroup>
+					<p:focus context="p_grid_login" />
+					<h:outputLabel value="Login:      " style="font-weight: bold;font-size:20px"/>
+				</h:panelGroup>	
+				<p:inputText placeholder="login" id="j_login" style="border-radius: 6px; font-size:20px"/>
+				<h:outputLabel value="Senha: " style="font-weight: bold;font-size:20px" />
+				<p:password placeholder="senha" id="j_senha" style="border-radius: 6px; font-size:20px"/>
+				<h:outputLabel />
+				<br />
+				<h:outputLabel />
+				<h:commandButton id="btLogin" value="Entrar" styleClass="logar" />
+				<a style="color: #cccccc;text-align:left;text-decoration: none;font-family: arial;font-weight: bolder;letter-spacing: 2px;" href="/website/index.html">website</a>
+			</h:panelGrid>
+		
+</p:dialog>		
+
+</form>
+
+
+</h:body>
+
+</html>
