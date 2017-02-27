@@ -1,8 +1,4 @@
-The OpenShift `jbossas` cartridge documentation can be found at:
-
-https://github.com/openshift/origin-server/tree/master/cartridges/openshift-origin-cartridge-jbossas/README.md
-
-# SGManagement
+# financial-controller
 - JSF 2.2.9 
 - EJB 3.2
 - Spring Security 3.2 
